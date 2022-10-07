@@ -1,35 +1,22 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-int main()
-{
-    int n;
-    int max,min;
+vector<int> seq;
+int N;
+
+int main(void) {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
     
-    cin >> n;
-    int arr[n];
-    
-    for (int i = 0; i<n; i++) 
-    {
-      cin >> arr[i];
+    cin >> N;
+    seq = vector<int>(N, 0);
+    for (int i = 0; i < N; ++i) {
+        cin >> seq[i];
     }
     
-    max = arr[0];
-    min = arr[0];
-    
-    for(int i = 1; i<n; i++)
-    {
-        if(arr[i] >= max)
-        {
-           max = arr[i];  
-        }
-        if(arr[i] < min)
-        {
-            min = arr[i];
-        }
-    }
-    
-    cout << min << " " << max;
-    
+    cout << *min_element(seq.begin(), seq.end()) << ' ';
+    cout << *max_element(seq.begin(), seq.end());
     return 0;
 }
