@@ -1,10 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <iostream>
- 
 using namespace std;
  
-int self(int number) {
+int func(int number) {
 	int sum = number;
  
 	while (number != 0) {
@@ -20,16 +18,16 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    vector<bool> selfOrNot(10000, false);
+    vector<bool> selfOrNot(10000, true);
     
 	for (int i = 1; i < 10001; i++) {
-		int n = self(i);
+		int n = func(i);
 		if (n < 10001) { // 10000 이 넘는 수는 필요가 없다.
-			selfOrNot[n] = true;
+			selfOrNot[n] = false;
 		}
 	}
 	for (int i = 1; i < 10001; i++) {
-		if (!selfOrNot[i]) {
+		if (selfOrNot[i]) {
 			cout << i << "\n";
 		}
 	}
